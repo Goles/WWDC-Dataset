@@ -1,0 +1,36 @@
+#!/usr/bin/python
+
+# I apologize for my extremely crappy Python code... it does get the job done though,
+# isn't Python all about that? ;)
+
+import os
+from subprocess import call
+
+scraper_directory_path = os.path.abspath('scraper')
+
+def scrape(URL):
+    # craft the Scrapy Command
+    start_url= 'start_URL=' + URL
+    call(['scrapy', 'crawl', 'wwdc', '-a', start_url, '-s', 'LOG_ENABLED=0'], cwd=scraper_directory_path)
+
+#
+# Scrape Script
+#
+
+# Will scrape WWDC 2011 (it's in Apple's video archive)
+print "-> Scraping WWDC 2011"
+scrape('https://developer.apple.com/videos/archive/')
+
+# Will scrape years [2012, ..., 2015]
+# Only 2015 has official Apple Transcripts
+for year in range(2012, 2016):
+    wwdc_url = 'https://developer.apple.com/videos/wwdc' + str(year)
+    print "-> Scraping WWDC " + str(year)
+    scrape(wwdc_url)
+
+# move scraped JSON files to cwd
+json_files = scraper_directory_path + '/*.json'
+move_command = "mv " + json_files + " ."
+call(move_command, shell=True)
+
+print "Done!11!1!"
