@@ -1,14 +1,14 @@
-# WWDC Session Dataset
+# WWDC Session Dataset 
 
-## Why? 💡
+## Why? :bulb:
 
 Because, who doesn't like scraping!? 
 
-In reality... I built the dataset because I found out that a lot of applications/utilities that deal with WWDC Session data, often get broken when Apple updates their websites and links. That's still going to keep happening, but now those apps can point to the relevant dataset files and the community can keep those up-to-date. In that way, there's less duplicated effort and everyone wins.
+I built the dataset because I found out that a lot of applications/utilities that deal with WWDC session data, often get broken when Apple updates their websites and links. That's still going to keep happening, but now those apps can point to the relevant dataset files and the community can keep those up-to-date. 
 
-Applications are varied, from educational iOS-related projects that could use some Apple related data instead of some random dataset, to actual apps that might want deal with WWDC sessions in some way or another.
+The code used to build the dataset is also available so that it can be kept updated.
 
-## Format 📄
+## Format :page_facing_up:
 
 ```JSON
 {
@@ -24,27 +24,48 @@ Applications are varied, from educational iOS-related projects that could use so
 }
 ```
 
-Because the transcripts are quite heavy, two versions of the dataset are provided, one with Transcripts and one with an empty array of transcripts.
+Because the transcripts are quite heavy, two versions of the dataset are provided, one with transcripts and one with an empty array of transcripts.
 
-| Year  | Size (no transcripts) | Size (with transcripts) | JSON (no transcripts)      | JSON (transcripts)
-| ----- | --------------------- | ----------------------- | -------------------------- | ------------------------ |
-| 2010  |       `? KB`          |         `? MB`          |                            |
-| 2011  |       `98 KB`         |         `? MB`          | [2011](datasets/2011.json) | [2011](datasets/2011.json)
-| 2012  |       `99 KB`         |         `? MB`          | [2012](datasets/2011.json) | [2012](datasets/2012.json)
-| 2013  |       `73 KB`         |         `? MB`          | [2013](datasets/2011.json) | [2013](datasets/2013.json)
-| 2014  |       `83 KB`         |         `? MB`          | [2014](datasets/2011.json) | [2014](datasets/2014.json)
-| 2015  |       `85 KB`         |        `7.7 MB`         | [2015](datasets/2011.json) | [2015](datasets/2015.json)
+| Year  | Size (no transcripts) | Size (with transcripts) | JSON (no transcripts)            | JSON (transcripts)
+| ----- | --------------------- | ----------------------- | -------------------------------- | -----------------------------------------
+| 2010  |                       |                         |                                  |
+| 2011  |       `98 KB`         |                         | [2011](./datasets/wwdc2011.json) | 
+| 2012  |       `99 KB`         |                         | [2012](./datasets/wwdc2012.json) | 
+| 2013  |       `73 KB`         |                         | [2013](./datasets/wwdc2013.json) | 
+| 2014  |       `83 KB`         |                         | [2014](./datasets/wwdc2014.json) | 
+| 2015  |       `85 KB`         |        `7.7 MB`         | [2015](./datasets/wwdc2015.json) | [2015](./datasets/wwdc2015_transcript.json)
 
-## Usage 🚀
+Note: 
 
-Just download the data and be creative!
+## Contributing :construction_worker:
 
-## Contributing 🛠
+### What's missing
 
-The.
+* Session data for WWDC 2010 sits behind Apple's developer website (non-public).
+* Transcripts from 2010-2014 (they are not in Apple's Website).
+* Maybe I can look at [ASCII WWDC](https://github.com/ASCIIwwdc/asciiwwdc.com) to import some of those transcripts to the same format that Apple used for 2015.
 
+### How the scraper works
 
-## About 😁
+Be sure to install [scrapy](http://scrapy.org)
+
+```
+pip install scrapy
+```
+
+Then, from the project folder just execute the build script (it's a Python script)
+
+```bash
+./build
+```
+
+That should output several `.json` files in your current working directory.
+
+### Contact
+
+For questions, ideas and/or trolling, I'm on Twitter :grin:
+
+<img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-512.png" alt="Twitter logo" height="17" > [http://twitter.com/ngoles](http://twitter.com/ngoles)
 
 ## Copyright
 
